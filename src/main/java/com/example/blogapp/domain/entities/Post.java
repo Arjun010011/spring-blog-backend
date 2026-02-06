@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.UUID;
 
+import com.example.blogapp.domain.PostStatus;
+
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -59,7 +61,7 @@ public class Post {
 
   @Column(nullable = false)
   @Enumerated(EnumType.STRING)
-  private PostEnum status;
+  private PostStatus status;
 
   @Column(nullable = false)
   private Integer readingTime;
