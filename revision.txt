@@ -1,0 +1,2 @@
+so repo converts sql to java entities that is the domain entities type 
+in repo here we are fetching all the categories and the post related to the categoreis in one go.
