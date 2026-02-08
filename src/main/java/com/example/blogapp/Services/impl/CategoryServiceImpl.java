@@ -1,6 +1,8 @@
 package com.example.blogapp.Services.impl;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -32,6 +34,17 @@ public class CategoryServiceImpl implements CategoryService {
     }
     // returns the saved category
     return categoryRepo.save(category);
+  }
+
+  @Override
+  public void deleteCategory(UUID id) {
+    Optional<Category> curCategory = categoryRepo.findById(id);
+    if (curCategory.isPresent()) {
+      if (!curCategory.get().getPosts().isEmpty()) {
+        throw new IllegalStateException("there are posts related to this category exists");
+      }
+      categoryRepo.deleteById(id);
+    }
   }
 
 }
