@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.example.blogapp.domain.entities.Category;
 
 @Repository
+
 public interface CategoryRepo extends JpaRepository<Category, UUID> {
 
   @Query("select c from Category c left join fetch c.posts")
