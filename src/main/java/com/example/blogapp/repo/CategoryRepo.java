@@ -17,6 +17,5 @@ public interface CategoryRepo extends JpaRepository<Category, UUID> {
   List<Category> findAllWithPostCount();
 
   Boolean existsByNameIgnoreCase(String name); // the function is a jpa function which return the query result of
-                                               // checking the database for the name and return true or false
 
 }
