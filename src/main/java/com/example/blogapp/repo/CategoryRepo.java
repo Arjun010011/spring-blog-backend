@@ -13,7 +13,7 @@ import com.example.blogapp.domain.entities.Category;
 
 public interface CategoryRepo extends JpaRepository<Category, UUID> {
 
-  @Query("select c from Category c left join fetch c.posts")
+  @Query("select distinct c from Category c left join fetch c.posts")
   List<Category> findAllWithPostCount();
 
   Boolean existsByNameIgnoreCase(String name); // the function is a jpa function which return the query result of

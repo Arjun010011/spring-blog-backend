@@ -9,13 +9,16 @@ import org.mapstruct.ReportingPolicy;
 import com.example.blogapp.domain.PostStatus;
 import com.example.blogapp.domain.entities.Category;
 import com.example.blogapp.domain.entities.Post;
+import com.example.blogapp.dtos.CategorySummaryDto;
 import com.example.blogapp.dtos.CategoryDto;
 import com.example.blogapp.dtos.CreateCategoryRequest;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CategoryMapper {
   @Mapping(target = "postCount", source = "posts", qualifiedByName = "calculatePostCount")
-  CategoryDto toDto(Category Category);
+  CategoryDto toDto(Category category);
+
+  CategorySummaryDto toSummary(Category category);
 
   Category toEntity(CreateCategoryRequest createCategoryRequest);
 

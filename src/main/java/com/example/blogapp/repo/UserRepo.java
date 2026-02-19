@@ -1,6 +1,7 @@
 package com.example.blogapp.repo;
 
 import java.util.UUID;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -9,5 +10,10 @@ import com.example.blogapp.domain.entities.User;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, UUID> {
+  Optional<User> findByEmailIgnoreCase(String email);
+
+  boolean existsByEmailIgnoreCase(String email);
+
+  boolean existsByNameIgnoreCase(String name);
 
 }
